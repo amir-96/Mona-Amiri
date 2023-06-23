@@ -1,0 +1,243 @@
+﻿@page
+@model IndexModel
+@{
+  ViewData["Title"] = "سالن زیبایی مونا امیری";
+}
+
+<partial name="_FirstPartView" />
+
+<!-- Reservation section -->
+
+<section id="reservation">
+  <div class="wrapper px-8 py-4 shadow rounded-lg border">
+    <div class="title">فرم رزرو نوبت</div>
+    <div class="tabs_wrap">
+      <ul>
+        <li id="personal-form" data-tabs="personal-form" class="active">
+          مشخصات
+        </li>
+        <li id="beautifier-form" data-tabs="beautifier-form">آرایشگر</li>
+        <li id="service-form" data-tabs="service-form">خدمات</li>
+        <li id="time-form" data-tabs="time-form">رزرو نوبت</li>
+        <li id="payment-form" data-tabs="payment-form">تایید نهایی</li>
+      </ul>
+    </div>
+    <div class="container">
+      <form method="post" asp-page-handler="AddAppointmentHandler">
+        <!-- First tab -->
+        <div id="tab" class="relative personal-form h-[250px]">
+          <p class="py-8">
+            - نام و شماره ی همراه خود را جهت رزرو نوبت وارد نمایید
+          </p>
+          <div class="flex items-center justify-between w-[500px]">
+            <div class="inputbox">
+              <input id="choosen-name"
+                     type="text"
+                     name="name"
+                     autocomplete="off"
+                     required />
+              <span>نام</span>
+              <i></i>
+            </div>
+            <span id="name-error"
+                  class="absolute text-red-400 mt-28"></span>
+
+            <div class="inputbox">
+              <input id="choosen-phone"
+                     type="text"
+                     name="phone"
+                     autocomplete="off"
+                     required />
+              <span>شماره ی همراه</span>
+              <i></i>
+            </div>
+            <span id="phone-error"
+                  class="absolute text-red-400 mt-28 right-[305px]"></span>
+          </div>
+          <button id="next-button"
+                  type="button"
+                  onclick="goSecondTab()"
+                  class="absolute left-2 bottom-2 ring-1 ring-green-400 rounded-full p-2 cursor-pointer hover:bg-green-50">
+            <img class="w-[40px] rotate-180"
+                 src="../images/next.svg"
+                 alt="next" />
+          </button>
+        </div>
+
+        <!-- Second tab -->
+        <div id="tab" class="relative beautifier-form h-fit pt-8 pb-20">
+          <fieldset>
+            <div class="grid grid-cols-2 gap-4 rounded-md bg-white">
+              @foreach (var MakeupArtist in Model.MakeupArtists)
+              {
+                <label class="rounded-md relative border p-4 flex cursor-pointer focus:outline-none h-[120px]">
+                  <input id="artist-@MakeupArtist.Name"
+                         onclick="enableThirdButton()"
+                         type="radio"
+                         name="beautifierRadio"
+                         value="@MakeupArtist.Name"
+                         class="absolute transfer top-[50%] -translate-y-1/2 right-2 h-4 w-4 shrink-0 cursor-pointer text-indigo-600 focus:ring-indigo-500" />
+                  <span class="ml-3 flex justify-between w-full mr-4 border-r pr-2">
+                    <div class="flex flex-col gap-2">
+                      <span id="choosen-makeup-artist"
+                            class="block text-sm font-semibold">@MakeupArtist.Name</span>
+                      <span class="block text-sm">@MakeupArtist.Description</span>
+                    </div>
+                    <div class="flex items-center justify-center h-full">
+                      <img class="w-12 rounded-full ring-1 ring-green-400"
+                           src="../images/mona-test.jpg"
+                           alt="Mona" />
+                    </div>
+                  </span>
+                </label>
+              }
+            </div>
+          </fieldset>
+
+          <button onclick="goFirstTab()"
+                  type="button"
+                  class="absolute right-2 bottom-2 ring-1 ring-red-400 rounded-full p-2 cursor-pointer hover:bg-red-50">
+            <img class="w-[40px]" src="../images/back.svg" alt="next" />
+          </button>
+
+          <button onclick="goThirdTab()"
+                  type="button"
+                  class="absolute left-2 bottom-2 ring-1 ring-green-400 rounded-full p-2 cursor-pointer hover:bg-green-50 go-third-tab-button">
+            <img class="w-[40px] rotate-180"
+                 src="../images/next.svg"
+                 alt="next" />
+          </button>
+        </div>
+
+        <!-- Third tab -->
+        <div id="tab" class="relative service-form h-fit pt-8 pb-20">
+          <fieldset>
+            <div class="grid grid-cols-2 gap-4 rounded-md bg-white">
+              @foreach (var MakeupArtist in Model.MakeupArtists)
+              {
+                @if (MakeupArtist.Services != null)
+                {
+                  @foreach (var Service in MakeupArtist.Services)
+                  {
+                    <label id="artist-service" class="rounded-md relative border p-4 flex cursor-pointer focus:outline-none h-[180px]">
+                      <input id="service-@MakeupArtist.Name"
+                             onclick="enableFourthTab()"
+                             type="radio"
+                             name="serviceRadio"
+                             value="@Service.Name"
+                             data="@Service.PersianPrice"
+                             class="absolute transfer top-[50%] -translate-y-1/2 right-2 h-4 w-4 shrink-0 cursor-pointer text-indigo-600 focus:ring-indigo-500 service-radio" />
+                      <span class="ml-3 flex justify-between checked:bg-indigo-50 mr-4 border-r pr-2">
+                        <div class="flex flex-col gap-2">
+                          <span id="choosen-service" class="block text-sm font-semibold">@Service.Name</span>
+                          <span class="block text-sm">@Service.Description</span>
+                          <span class="absolute flex items-center gap-1 bottom-3 right-[40px] text-sm text-left">
+                            <img class="w-[24px]"
+                                 src="../images/time.svg"
+                                 alt="Time" />
+                            @Service.Duration
+                          </span>
+                          <span class="absolute flex items-center gap-1 bottom-3 left-4 text-sm text-left">
+                            <img class="w-[24px]"
+                                 src="../images/money.svg"
+                                 alt="Money" />
+                            <span id="choosen-price">@Service.PersianPrice</span>
+                            <span class="text-[8px] font-semibold">تومان</span>
+                          </span>
+                        </div>
+                      </span>
+                    </label>
+                  }
+                }
+              }
+            </div>
+          </fieldset>
+
+          <button onclick="goSecondTab2()"
+                  type="button"
+                  class="absolute right-2 bottom-2 ring-1 ring-red-400 rounded-full p-2 cursor-pointer hover:bg-red-50">
+            <img class="w-[40px]" src="../images/back.svg" alt="next" />
+          </button>
+
+          <button onclick="goFourthTab()"
+                  type="button"
+                  class="absolute left-2 bottom-2 ring-1 ring-green-400 rounded-full p-2 cursor-pointer hover:bg-green-50 go-fourth-tab-button">
+            <img class="w-[40px] rotate-180"
+                 src="../images/next.svg"
+                 alt="next" />
+          </button>
+        </div>
+
+        <!-- Fourth tab -->
+        <div id="tab" class="relative time-form h-fit pt-8 pb-20">
+          <fieldset>
+            <div class="grid grid-cols-2 gap-4 rounded-md bg-white">
+              @foreach (var MakeupArtist in Model.MakeupArtists)
+              {
+                @foreach (var TimeSlot in MakeupArtist.TimeSlots)
+                {
+                  <label class="rounded-md relative border p-4 flex cursor-pointer focus:outline-none h-[80px]">
+                    <input id="time-@MakeupArtist.Name"
+                           onclick="enableFifthTab()"
+                           type="radio"
+                           name="timeRadio"
+                           value="@TimeSlot.Id"
+                           data="@TimeSlot.PersianDayOfWeek از ساعت @TimeSlot.StartTime.ToString("hh:mm") تا @TimeSlot.EndTime.ToString("hh:mm")"
+                           class="absolute transfer top-[50%] -translate-y-1/2 right-2 h-4 w-4 shrink-0 cursor-pointer text-indigo-600 focus:ring-indigo-500 time-radio" />
+                    <span class="ml-3 flex justify-between w-full mr-4 border-r pr-2">
+                      <div class="flex flex-col gap-2">
+                        <span id="choosen-day"
+                              class="block text-sm font-semibold">@TimeSlot.PersianDayOfWeek</span>
+                        <span id="choosen-time" class="block text-sm">ساعت @TimeSlot.StartTime.ToString("hh:mm") تا @TimeSlot.EndTime.ToString("hh:mm")</span>
+                      </div>
+                    </span>
+                  </label>
+                }
+              }
+            </div>
+          </fieldset>
+
+          <button onclick="goThirdTab2()"
+                  type="button"
+                  class="absolute right-2 bottom-2 ring-1 ring-red-400 rounded-full p-2 cursor-pointer hover:bg-red-50">
+            <img class="w-[40px]" src="../images/back.svg" alt="next" />
+          </button>
+
+          <button onclick="goFifthTab()"
+                  type="button"
+                  class="absolute left-2 bottom-2 ring-1 ring-green-400 rounded-full p-2 cursor-pointer hover:bg-green-50 go-fifth-tab-button">
+            <img class="w-[40px] rotate-180"
+                 src="../images/next.svg"
+                 alt="next" />
+          </button>
+        </div>
+
+        <!-- Fifth tab -->
+
+        <div id="tab" class="relative payment-form h-fit pt-8 pb-20">
+          <div class="flex flex-col gap-4 w-full h-full px-4">
+            <p class="text-center py-4">تایید اطلاعات</p>
+            <p id="set-choosen-name"></p>
+            <p id="set-choosen-phone"></p>
+            <p id="set-choosen-makeup-artist"></p>
+            <p id="set-choosen-service"></p>
+            <p id="set-choosen-time"></p>
+            <p id="set-choosen-price"></p>
+            <p>در صورت صحت اطلاعات فوق برای تکمیل عملیات رزرو بر روی تایید و پرداخت کلیک کنید.</p>
+          </div>
+
+          <button onclick="goFourthTab2()"
+                  type="button"
+                  class="absolute right-2 bottom-2 ring-1 ring-red-400 rounded-full p-2 cursor-pointer hover:bg-red-50">
+            <img class="w-[40px]" src="../images/back.svg" alt="next" />
+          </button>
+
+          <button type="submit"
+                  class="absolute bottom-2 transform left-[50%] -translate-x-1/2 px-4 py-2 border rounded-lg bg-green-200 shadow">
+            تایید و پرداخت
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
