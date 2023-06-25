@@ -12,14 +12,14 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Mona_Amiri.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230623164702_init2")]
-    partial class init2
+    [Migration("20230625185241_First")]
+    partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.16")
+                .HasAnnotation("ProductVersion", "6.0.18")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -87,6 +87,10 @@ namespace Mona_Amiri.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("text");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -137,6 +141,8 @@ namespace Mona_Amiri.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -167,12 +173,10 @@ namespace Mona_Amiri.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("text");
@@ -209,12 +213,10 @@ namespace Mona_Amiri.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Value")
                         .HasColumnType("text");
@@ -232,8 +234,12 @@ namespace Mona_Amiri.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ArtistId")
+                    b.Property<int>("MakeupArtistId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("MakeupArtistId1")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -251,7 +257,7 @@ namespace Mona_Amiri.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistId");
+                    b.HasIndex("MakeupArtistId1");
 
                     b.HasIndex("ServiceId");
 
@@ -281,27 +287,6 @@ namespace Mona_Amiri.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("Mona_Amiri.Models.MakeupArtist", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MakeupArtists");
-                });
-
             modelBuilder.Entity("Mona_Amiri.Models.Service", b =>
                 {
                     b.Property<int>("Id")
@@ -317,8 +302,8 @@ namespace Mona_Amiri.Migrations
                     b.Property<TimeSpan>("Duration")
                         .HasColumnType("interval");
 
-                    b.Property<int?>("MakeupArtistId")
-                        .HasColumnType("integer");
+                    b.Property<string>("MakeupArtistId")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -345,8 +330,8 @@ namespace Mona_Amiri.Migrations
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("MakeupArtistId")
-                        .HasColumnType("integer");
+                    b.Property<string>("MakeupArtistId")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("timestamp with time zone");
@@ -356,6 +341,27 @@ namespace Mona_Amiri.Migrations
                     b.HasIndex("MakeupArtistId");
 
                     b.ToTable("TimeSlots");
+                });
+
+            modelBuilder.Entity("Mona_Amiri.Models.MakeupArtist", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("Adress")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("character varying(80)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasDiscriminator().HasValue("MakeupArtist");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -411,9 +417,9 @@ namespace Mona_Amiri.Migrations
 
             modelBuilder.Entity("Mona_Amiri.Models.Appointment", b =>
                 {
-                    b.HasOne("Mona_Amiri.Models.MakeupArtist", "Artist")
+                    b.HasOne("Mona_Amiri.Models.MakeupArtist", "MakeupArtist")
                         .WithMany()
-                        .HasForeignKey("ArtistId")
+                        .HasForeignKey("MakeupArtistId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -429,7 +435,7 @@ namespace Mona_Amiri.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Artist");
+                    b.Navigation("MakeupArtist");
 
                     b.Navigation("Service");
 

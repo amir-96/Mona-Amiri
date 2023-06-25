@@ -11258,19 +11258,19 @@
   },
   "packageFolders": {
     "C:\\Users\\amirj\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "D:\\Viisual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\GitHub\\Mona-Amiri\\Mona Amiri.csproj",
+      "projectUniqueName": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\Mona Amiri.csproj",
       "projectName": "Mona Amiri",
-      "projectPath": "D:\\Programming\\GitHub\\Mona-Amiri\\Mona Amiri.csproj",
+      "projectPath": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\Mona Amiri.csproj",
       "packagesPath": "C:\\Users\\amirj\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\GitHub\\Mona-Amiri\\obj\\",
+      "outputPath": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Viisual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\amirj\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -11281,7 +11281,6 @@
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}

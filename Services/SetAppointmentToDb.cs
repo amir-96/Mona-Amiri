@@ -30,7 +30,7 @@ namespace Mona_Amiri.Services
         {
           Name = name,
           PhoneNumber = phone,
-          Artist = AppointmentMakeupArtist,
+          MakeupArtist = AppointmentMakeupArtist,
           Service = AppointmentService,
           Timeslot = AppointmentTimeSlot
         };

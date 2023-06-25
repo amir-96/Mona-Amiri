@@ -1,0 +1,27 @@
+﻿@{
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="~/css/main.css" rel="stylesheet" asp-append-version="true" />
+
+  @await RenderSectionAsync("Styles", required: false)
+
+  <link href="~/fonts/fontiran.css" rel="stylesheet" />
+  <title>@ViewData["Title"]</title>
+</head>
+
+<body class="font-yekanBakh">
+  <header></header>
+
+  <main role="main" class="container">
+    @RenderBody()
+  </main>
+
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

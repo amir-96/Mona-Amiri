@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <environment include="Development">
+  @*<environment include="Development">
     <link href="~/css/main.css" rel="stylesheet" asp-append-version="true" />
   </environment>
   <environment exclude="Development">
     <link href="~/css/main.min.css" asp-fallback-href="~/css/main.css" rel="stylesheet" asp-append-version="true" />
-  </environment>
+  </environment>*@
   <link href="~/css/main.css" rel="stylesheet" asp-append-version="true" />
   <link href="~/css/beauti.css" rel="stylesheet" asp-append-version="true" />
 
@@ -61,8 +61,10 @@
         <a class="relative cursor-pointer button-underline">تماس با ما</a>
       </div>
 
-      <a class="px-4 py-2 animated-button" asp-area="Identity" asp-page="/Account/Login">ورود</a>
-      <button class="px-4 py-2 animated-button"><a href="#go-reserve">رزرو نوبت</a></button>
+      <div class="flex items-center justify-between">
+        <partial name="_LoginPartial" />
+        <button class="px-4 py-2 animated-button"><a href="#go-reserve">رزرو نوبت</a></button>
+      </div>
     </div>
   </header>
 

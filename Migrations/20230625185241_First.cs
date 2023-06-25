@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Mona_Amiri.Migrations
 {
-    public partial class init : Migration
+    public partial class First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,6 +29,10 @@ namespace Mona_Amiri.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
+                    Discriminator = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Description = table.Column<string>(type: "character varying(80)", maxLength: 80, nullable: true),
+                    Adress = table.Column<string>(type: "text", nullable: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -61,20 +65,6 @@ namespace Mona_Amiri.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MakeupArtists",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MakeupArtists", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -123,8 +113,8 @@ namespace Mona_Amiri.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "text", nullable: false),
+                    ProviderKey = table.Column<string>(type: "text", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "text", nullable: true),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -168,8 +158,8 @@ namespace Mona_Amiri.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "text", nullable: false),
-                    LoginProvider = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
                     Value = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -193,15 +183,15 @@ namespace Mona_Amiri.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     Duration = table.Column<TimeSpan>(type: "interval", nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
-                    MakeupArtistId = table.Column<int>(type: "integer", nullable: true)
+                    MakeupArtistId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Services", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Services_MakeupArtists_MakeupArtistId",
+                        name: "FK_Services_AspNetUsers_MakeupArtistId",
                         column: x => x.MakeupArtistId,
-                        principalTable: "MakeupArtists",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
 
@@ -213,15 +203,15 @@ namespace Mona_Amiri.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     StartTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     EndTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    MakeupArtistId = table.Column<int>(type: "integer", nullable: true)
+                    MakeupArtistId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TimeSlots", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TimeSlots_MakeupArtists_MakeupArtistId",
+                        name: "FK_TimeSlots_AspNetUsers_MakeupArtistId",
                         column: x => x.MakeupArtistId,
-                        principalTable: "MakeupArtists",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
 
@@ -233,7 +223,8 @@ namespace Mona_Amiri.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     PhoneNumber = table.Column<string>(type: "text", nullable: false),
-                    ArtistId = table.Column<int>(type: "integer", nullable: false),
+                    MakeupArtistId = table.Column<int>(type: "integer", nullable: false),
+                    MakeupArtistId1 = table.Column<string>(type: "text", nullable: false),
                     ServiceId = table.Column<int>(type: "integer", nullable: false),
                     TimeslotId = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -241,9 +232,9 @@ namespace Mona_Amiri.Migrations
                 {
                     table.PrimaryKey("PK_Appointments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Appointments_MakeupArtists_ArtistId",
-                        column: x => x.ArtistId,
-                        principalTable: "MakeupArtists",
+                        name: "FK_Appointments_AspNetUsers_MakeupArtistId1",
+                        column: x => x.MakeupArtistId1,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -261,9 +252,9 @@ namespace Mona_Amiri.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointments_ArtistId",
+                name: "IX_Appointments_MakeupArtistId1",
                 table: "Appointments",
-                column: "ArtistId");
+                column: "MakeupArtistId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_ServiceId",
@@ -357,9 +348,6 @@ namespace Mona_Amiri.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "MakeupArtists");
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Mona_Amiri.Pages
 
     public List<MakeupArtist> MakeupArtists { get; set; }
 
-    public void OnGet()
+    public async Task<IActionResult> OnGet()
     {
       if (!_context.MakeupArtists.Any())
       {
@@ -28,10 +28,11 @@ namespace Mona_Amiri.Pages
 
         firstDataHandler.AddFirstData();
       }
-      MakeupArtists = _context.MakeupArtists.Where(a => a.Services.Count > 0 && a.TimeSlots.Count > 0)
+
+      MakeupArtists = await _context.MakeupArtists.Where(a => a.Services.Count > 0 && a.TimeSlots.Count > 0)
           .Include(a => a.Services)
           .Include(a => a.TimeSlots)
-          .ToList();
+          .ToListAsync();
 
       var persianCalendar = new PersianCalendar();
       var persianCalendarServices = new PersianCalendarServices();
@@ -54,6 +55,8 @@ namespace Mona_Amiri.Pages
           timeSlot.PersianDayOfWeek = persianCalendarServices.GetPersianDayOfWeek(date.DayOfWeek);
         }
       }
+
+      return Page();
     }
 
     public async Task<IActionResult> OnPostAddAppointmentHandler(string name, string phone, string beautifierRadio, string serviceRadio, string timeRadio)

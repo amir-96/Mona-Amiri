@@ -10,9 +10,9 @@ namespace Mona_Amiri.Models
     public DateTime StartTime { get; set; }
     [Required(ErrorMessage = "فیلد را پر کتید")]
     public DateTime EndTime { get; set; }
-    [Required(ErrorMessage = "فیلد را پر کتید")]
+    [NotMapped]
     public string ShamsiDate { get; set; }
-    [Required(ErrorMessage = "فیلد را پر کتید")]
+    [NotMapped]
     public string PersianDayOfWeek { get; set; }
   }
 }

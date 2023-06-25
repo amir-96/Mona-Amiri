@@ -7,7 +7,7 @@ namespace Mona_Amiri.Services
   {
     private readonly ApplicationDbContext _context;
     public FirstDataHandler(ApplicationDbContext context) { _context = context; }
-    public void AddFirstData()
+    public async void AddFirstData()
     {
       // Create a new MakeupArtist object
       var makeupArtist = new MakeupArtist
@@ -18,7 +18,7 @@ namespace Mona_Amiri.Services
 
       // Add the MakeupArtist object to the database
       _context.MakeupArtists.Add(makeupArtist);
-      _context.SaveChanges();
+      await _context.SaveChangesAsync();
 
       // Create a new Service object
       var service = new Service
@@ -31,7 +31,7 @@ namespace Mona_Amiri.Services
 
       // Add the Service object to the database
       _context.Services.Add(service);
-      _context.SaveChanges();
+      await _context.SaveChangesAsync();
 
       // Create a new TimeSlot object
       var timeSlot = new TimeSlot
@@ -40,12 +40,12 @@ namespace Mona_Amiri.Services
         EndTime = DateTime.Now.AddHours(1).ToUniversalTime(),
       };
       _context.TimeSlots.Add(timeSlot);
-      _context.SaveChanges();
+      await _context.SaveChangesAsync();
 
 
       makeupArtist.Services = new List<Service> { service };
       makeupArtist.TimeSlots = new List<TimeSlot> { timeSlot };
-      _context.SaveChanges();
+      await _context.SaveChangesAsync();
     }
   }
 }

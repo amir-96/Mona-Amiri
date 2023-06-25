@@ -13,9 +13,9 @@ namespace Mona_Amiri.Models
     public string PhoneNumber { get; set; }
 
     [Required(ErrorMessage = "فیلد را پر کتید")]
-    public int ArtistId { get; set; }
+    public int MakeupArtistId { get; set; }
     [Required(ErrorMessage = "فیلد را پر کتید")]
-    public MakeupArtist Artist { get; set; }
+    public MakeupArtist MakeupArtist { get; set; }
 
     [Required(ErrorMessage = "فیلد را پر کتید")]
     public int ServiceId { get; set; }
