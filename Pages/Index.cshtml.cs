@@ -22,13 +22,6 @@ namespace Mona_Amiri.Pages
 
     public async Task<IActionResult> OnGet()
     {
-      if (!_context.MakeupArtists.Any())
-      {
-        var firstDataHandler = new FirstDataHandler(_context);
-
-        firstDataHandler.AddFirstData();
-      }
-
       MakeupArtists = await _context.MakeupArtists.Where(a => a.Services.Count > 0 && a.TimeSlots.Count > 0)
           .Include(a => a.Services)
           .Include(a => a.TimeSlots)

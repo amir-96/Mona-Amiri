@@ -8,8 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -18,14 +20,19 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
       options.Password.RequiredLength = 8;
       options.Password.RequireUppercase = false;
       options.Password.RequireNonAlphanumeric = false;
+      options.User.RequireUniqueEmail = true;
     })
+    .AddErrorDescriber<CustomErrorDescriber>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders()
     .AddDefaultUI();
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+  options.Conventions.AuthorizeAreaFolder("User", "/Manage");
+});
 
 var app = builder.Build();
 

@@ -9,27 +9,57 @@
   <link href="~/css/login.css" rel="stylesheet" />
 }
 
-<div class="flex items-center justify-center w-screen h-screen">
+<div class="flex items-center justify-center w-screen py-12">
   <div class="form-container">
     <p class="title">ثبت نام</p>
     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form space-y-4">
       <div asp-validation-summary="ModelOnly" class="text-red-400"></div>
       <div class="input-group">
-        <label for="username">نام کاربری</label>
+        <label asp-for="Input.Email"></label>
         <input asp-for="Input.Email" autocomplete="username" aria-required="true" />
         <span asp-validation-for="Input.Email" class="text-red-400"></span>
       </div>
 
       <div class="input-group">
-        <label for="password">کلمه ی عبور</label>
+        <label asp-for="Input.UserName"></label>
+        <input asp-for="Input.UserName" autocomplete="username" aria-required="true" />
+        <span asp-validation-for="Input.UserName" class="text-red-400"></span>
+      </div>
+
+      <div class="input-group">
+        <label asp-for="Input.Password"></label>
         <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" />
         <span asp-validation-for="Input.Password" class="text-red-400"></span>
       </div>
 
       <div class="input-group">
-        <label for="Input.ConfirmPassword">تکرار کلمه ی عبور</label>
+        <label asp-for="Input.ConfirmPassword"></label>
         <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" />
         <span asp-validation-for="Input.ConfirmPassword" class="text-red-400"></span>
+      </div>
+
+      <div class="input-group">
+        <label asp-for="Input.Name"></label>
+        <input asp-for="Input.Name" aria-required="true" />
+        <span asp-validation-for="Input.Name" class="text-red-400"></span>
+      </div>
+
+      <div class="input-group">
+        <label asp-for="Input.PhoneNumber"></label>
+        <input asp-for="Input.PhoneNumber" aria-required="true" />
+        <span asp-validation-for="Input.PhoneNumber" class="text-red-400"></span>
+      </div>
+
+      <div class="input-group">
+        <label asp-for="Input.Description"></label>
+        <textarea asp-for="Input.Description" aria-required="true"></textarea>
+        <span asp-validation-for="Input.Description" class="text-red-400"></span>
+      </div>
+
+      <div class="input-group">
+        <label asp-for="Input.Adress"></label>
+        <textarea asp-for="Input.Adress" aria-required="true"></textarea>
+        <span asp-validation-for="Input.Adress" class="text-red-400"></span>
       </div>
 
       <div>

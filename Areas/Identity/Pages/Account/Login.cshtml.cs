@@ -64,16 +64,27 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
       ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
       ///     directly from your code. This API may change or be removed in future releases.
       /// </summary>
-      [Required(ErrorMessage = "پر کردن این فیلد اجباری است")]
-      [EmailAddress(ErrorMessage = "ایمیل نا معتبر است")]
-      public string Email { get; set; }
+      //[Required(ErrorMessage = "پر کردن این فیلد اجباری است")]
+      //[EmailAddress(ErrorMessage = "ایمیل نا معتبر است")]
+      //public string Email { get; set; }
 
       /// <summary>
       ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
       ///     directly from your code. This API may change or be removed in future releases.
       /// </summary>
       [Required(ErrorMessage = "پر کردن این فیلد اجباری است")]
+      [StringLength(50, ErrorMessage = "{0} باید حداقل 2 کاراکتر باشد", MinimumLength = 2)]
+      [Display(Name = "نام کاربری")]
+      public string UserName { get; set; }
+
+      /// <summary>
+      ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+      ///     directly from your code. This API may change or be removed in future releases.
+      /// </summary>
+      [Required(ErrorMessage = "پر کردن این فیلد اجباری است")]
+      [StringLength(100, ErrorMessage = "{0} باید حداقل 8 کاراکتر باشد", MinimumLength = 8)]
       [DataType(DataType.Password)]
+      [Display(Name = "کلمه ی عبور")]
       public string Password { get; set; }
 
       /// <summary>
@@ -84,8 +95,12 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
       public bool RememberMe { get; set; }
     }
 
-    public async Task OnGetAsync(string returnUrl = null)
+    public async Task<IActionResult> OnGetAsync(string returnUrl = null)
     {
+      if (_signInManager.IsSignedIn(User))
+      {
+        return RedirectToPage("/Index");
+      }
       if (!string.IsNullOrEmpty(ErrorMessage))
       {
         ModelState.AddModelError(string.Empty, ErrorMessage);
@@ -99,6 +114,8 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
       ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
       ReturnUrl = returnUrl;
+
+      return Page();
     }
 
     public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -111,10 +128,10 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
       {
         // This doesn't count login failures towards account lockout
         // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-        var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+        var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
         if (result.Succeeded)
         {
-          _logger.LogInformation("User logged in.");
+          _logger.LogInformation("کاربر وارد شد");
           return LocalRedirect(returnUrl);
         }
         if (result.RequiresTwoFactor)
@@ -123,12 +140,12 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
         }
         if (result.IsLockedOut)
         {
-          _logger.LogWarning("User account locked out.");
+          _logger.LogWarning("حساب کاربری شما قفل شده است");
           return RedirectToPage("./Lockout");
         }
         else
         {
-          ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+          ModelState.AddModelError(string.Empty, "نام کاربری یا رمز عبور اشتباه است");
           return Page();
         }
       }

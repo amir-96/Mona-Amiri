@@ -14,7 +14,9 @@ namespace Mona_Amiri.Models
     public TimeSpan Duration { get; set; }
     [Required(ErrorMessage = "فیلد را پر کتید")]
     public decimal Price { get; set; }
-    [NotMapped]
+    [Required(ErrorMessage = "فیلد را پر کتید")]
     public string PersianPrice { get; set; }
+    public DateTime? CreatedDate { get; set; }
+
   }
 }

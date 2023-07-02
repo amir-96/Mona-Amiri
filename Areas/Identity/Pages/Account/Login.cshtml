@@ -16,13 +16,13 @@
     <form id="account" method="post" class="form space-y-4">
       <div asp-validation-summary="ModelOnly" class="text-red-400"></div>
       <div class="input-group">
-        <label for="username">نام کاربری</label>
-        <input asp-for="Input.Email" autocomplete="username" aria-required="true" />
-        <span asp-validation-for="Input.Email" class="text-red-400"></span>
+        <label asp-for="Input.UserName"></label>
+        <input asp-for="Input.UserName" autocomplete="username" aria-required="true" />
+        <span asp-validation-for="Input.UserName" class="text-red-400"></span>
       </div>
 
       <div class="input-group">
-        <label for="password">کلمه ی عبور</label>
+        <label asp-for="Input.Password"></label>
         <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" />
         <span asp-validation-for="Input.Password" class="text-red-400"></span>
       </div>

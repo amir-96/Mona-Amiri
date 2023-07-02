@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\amirj\Desktop\Uni AI\Mona-Amiri\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-07-02T13:11:55.4347058Z;True|2023-07-02T01:11:25.2793113+03:30;True|2023-07-01T23:45:39.6425602+03:30;True|2023-07-01T22:59:26.4639542+03:30;True|2023-07-01T22:27:50.9836360+03:30;True|2023-07-01T22:27:33.9079352+03:30;True|2023-07-01T22:04:31.0256823+03:30;True|2023-07-01T22:03:06.7777570+03:30;True|2023-07-01T21:40:54.2719861+03:30;True|2023-07-01T21:30:00.3529507+03:30;True|2023-07-01T21:11:25.0411235+03:30;True|2023-07-01T19:35:04.3520082+03:30;True|2023-07-01T18:24:02.0448257+03:30;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="LiaraInConnection">
+      <Value>Server=amir-database%3bPort=5432%3bDatabase=Mona4_db%3bUser Id=root%3bPassword=l5zp9nLTBKUg7n5KQ7NtKi1U</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,493 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\Mona Amiri.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Mona Amiri.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\css\\beauti.css",
+      "PackagePath": "staticwebassets\\css\\beauti.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\css\\main.min.css",
+      "PackagePath": "staticwebassets\\css\\main.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\fontiran.css",
+      "PackagePath": "staticwebassets\\fonts\\fontiran.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff2\\YekanBakh-Black.woff2",
+      "PackagePath": "staticwebassets\\fonts\\woff2\\YekanBakh-Black.woff2"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff2\\YekanBakh-Bold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\woff2\\YekanBakh-Bold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff2\\YekanBakh-ExtraBlack.woff2",
+      "PackagePath": "staticwebassets\\fonts\\woff2\\YekanBakh-ExtraBlack.woff2"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff2\\YekanBakh-ExtraBold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\woff2\\YekanBakh-ExtraBold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff2\\YekanBakh-Light.woff2",
+      "PackagePath": "staticwebassets\\fonts\\woff2\\YekanBakh-Light.woff2"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff2\\YekanBakh-Regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\woff2\\YekanBakh-Regular.woff2"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff2\\YekanBakh-SemiBold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\woff2\\YekanBakh-SemiBold.woff2"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff2\\YekanBakh-Thin.woff2",
+      "PackagePath": "staticwebassets\\fonts\\woff2\\YekanBakh-Thin.woff2"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff\\YekanBakh-Black.woff",
+      "PackagePath": "staticwebassets\\fonts\\woff\\YekanBakh-Black.woff"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff\\YekanBakh-Bold.woff",
+      "PackagePath": "staticwebassets\\fonts\\woff\\YekanBakh-Bold.woff"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff\\YekanBakh-ExtraBlack.woff",
+      "PackagePath": "staticwebassets\\fonts\\woff\\YekanBakh-ExtraBlack.woff"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff\\YekanBakh-ExtraBold.woff",
+      "PackagePath": "staticwebassets\\fonts\\woff\\YekanBakh-ExtraBold.woff"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff\\YekanBakh-Light.woff",
+      "PackagePath": "staticwebassets\\fonts\\woff\\YekanBakh-Light.woff"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff\\YekanBakh-Regular.woff",
+      "PackagePath": "staticwebassets\\fonts\\woff\\YekanBakh-Regular.woff"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff\\YekanBakh-SemiBold.woff",
+      "PackagePath": "staticwebassets\\fonts\\woff\\YekanBakh-SemiBold.woff"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\fonts\\woff\\YekanBakh-Thin.woff",
+      "PackagePath": "staticwebassets\\fonts\\woff\\YekanBakh-Thin.woff"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Appointment.svg",
+      "PackagePath": "staticwebassets\\images\\Appointment.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Arrow.svg",
+      "PackagePath": "staticwebassets\\images\\Arrow.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ChooseService.svg",
+      "PackagePath": "staticwebassets\\images\\ChooseService.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Dashboard.svg",
+      "PackagePath": "staticwebassets\\images\\Dashboard.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Delete.svg",
+      "PackagePath": "staticwebassets\\images\\Delete.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Edit.svg",
+      "PackagePath": "staticwebassets\\images\\Edit.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Exit.svg",
+      "PackagePath": "staticwebassets\\images\\Exit.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Logo.png",
+      "PackagePath": "staticwebassets\\images\\Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Makeup.jpg",
+      "PackagePath": "staticwebassets\\images\\Makeup.jpg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\43429df8-dc79-46b5-bb5d-15f95c2475e1.jpg",
+      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\43429df8-dc79-46b5-bb5d-15f95c2475e1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\517e51c7-5fcf-43d8-abe4-6502977eddb6.png",
+      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\517e51c7-5fcf-43d8-abe4-6502977eddb6.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\DefaultProfile.png",
+      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\DefaultProfile.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\a31e8449-bb1e-4db5-abf4-a3547822f55d.png",
+      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\a31e8449-bb1e-4db5-abf4-a3547822f55d.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\d3f4e3e7-162b-461f-800f-f42cb148c324.png",
+      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\d3f4e3e7-162b-461f-800f-f42cb148c324.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Service.svg",
+      "PackagePath": "staticwebassets\\images\\Service.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\User.svg",
+      "PackagePath": "staticwebassets\\images\\User.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\UserManage.svg",
+      "PackagePath": "staticwebassets\\images\\UserManage.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\back.svg",
+      "PackagePath": "staticwebassets\\images\\back.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\close.svg",
+      "PackagePath": "staticwebassets\\images\\close.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\danger.svg",
+      "PackagePath": "staticwebassets\\images\\danger.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\default.png",
+      "PackagePath": "staticwebassets\\images\\default.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\image1.jpg",
+      "PackagePath": "staticwebassets\\images\\image1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\image2.jpg",
+      "PackagePath": "staticwebassets\\images\\image2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\mobile-menu.svg",
+      "PackagePath": "staticwebassets\\images\\mobile-menu.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\mona-test.jpg",
+      "PackagePath": "staticwebassets\\images\\mona-test.jpg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\money.svg",
+      "PackagePath": "staticwebassets\\images\\money.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\next.svg",
+      "PackagePath": "staticwebassets\\images\\next.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\test1.png",
+      "PackagePath": "staticwebassets\\images\\test1.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\test2.png",
+      "PackagePath": "staticwebassets\\images\\test2.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\test20.png",
+      "PackagePath": "staticwebassets\\images\\test20.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\test4.png",
+      "PackagePath": "staticwebassets\\images\\test4.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\test40.png",
+      "PackagePath": "staticwebassets\\images\\test40.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\test5.png",
+      "PackagePath": "staticwebassets\\images\\test5.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\test8.png",
+      "PackagePath": "staticwebassets\\images\\test8.png"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\time.svg",
+      "PackagePath": "staticwebassets\\images\\time.svg"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\js\\PanelLayout.js",
+      "PackagePath": "staticwebassets\\js\\PanelLayout.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\js\\html-duration-picker.min.js",
+      "PackagePath": "staticwebassets\\js\\html-duration-picker.min.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.Mona Amiri.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.Mona Amiri.props",
+      "PackagePath": "build\\Mona Amiri.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Mona Amiri.props",
+      "PackagePath": "buildMultiTargeting\\Mona Amiri.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildTransitive.Mona Amiri.props",
+      "PackagePath": "buildTransitive\\Mona Amiri.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -16,7 +16,7 @@ namespace Mona_Amiri.Services
       mail.IsBodyHtml = true;
 
       SmtpServer.Port = 587;
-      SmtpServer.Credentials = new System.Net.NetworkCredential("amirsender96@gmail.com", "AmiR147258");
+      SmtpServer.Credentials = new System.Net.NetworkCredential("amirsender96@gmail.com", "rcxcdrvnopirdjdj");
       SmtpServer.EnableSsl = true;
 
       SmtpServer.Send(mail);

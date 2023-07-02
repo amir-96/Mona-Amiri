@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -19,10 +20,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Mona_Amiri.Data;
+using Mona_Amiri.Models;
 using Mona_Amiri.Services;
 
 namespace Mona_Amiri.Areas.Identity.Pages.Account
 {
+  [Authorize(Roles = SD.AdminEndUser)]
   public class RegisterModel : PageModel
   {
     private readonly SignInManager<IdentityUser> _signInManager;
@@ -53,65 +56,68 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
       _context = context;
     }
 
-    /// <summary>
-    ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     [BindProperty]
     public InputModel Input { get; set; }
 
-    /// <summary>
-    ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public string ReturnUrl { get; set; }
 
-    /// <summary>
-    ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
-    /// <summary>
-    ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class InputModel
     {
-      /// <summary>
-      ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-      ///     directly from your code. This API may change or be removed in future releases.
-      /// </summary>
       [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-      [EmailAddress(ErrorMessage = "ایمیل نا معتبر است")]
+      [EmailAddress(ErrorMessage = "{0} نا معتبر است")]
       [Display(Name = "ایمیل")]
       public string Email { get; set; }
 
-      /// <summary>
-      ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-      ///     directly from your code. This API may change or be removed in future releases.
-      /// </summary>
+      [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+      [StringLength(50, ErrorMessage = "{0} باید حداقل 2 کاراکتر باشد", MinimumLength = 2)]
+      [Display(Name = "نام کاربری")]
+      public string UserName { get; set; }
+
+      [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+      [RegularExpression(@"^09\d{9}$", ErrorMessage = "{0} نامعتبر است")]
+      [DataType(DataType.PhoneNumber)]
+      [Display(Name = "شماره ی همراه")]
+      public string PhoneNumber { get; set; }
+
       [Required(ErrorMessage = "پر کردن این فیلد اجباری است")]
-      [StringLength(100, ErrorMessage = "کلمه ی عبور باید حداقل 8 کاراکتر باشد", MinimumLength = 8)]
+      [StringLength(100, ErrorMessage = "{0} باید حداقل 8 کاراکتر باشد", MinimumLength = 8)]
       [DataType(DataType.Password)]
-      [Display(Name = "Password")]
+      [Display(Name = "کلمه ی عبور")]
       public string Password { get; set; }
 
-      /// <summary>
-      ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-      ///     directly from your code. This API may change or be removed in future releases.
-      /// </summary>
       [DataType(DataType.Password)]
-      [Display(Name = "Confirm password")]
+      [Display(Name = "تکرار کلمه ی عبور")]
       [Compare("Password", ErrorMessage = "کلمه ی عبور و تکرار آن باهم مطابقت ندارند")]
       public string ConfirmPassword { get; set; }
+
+      [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+      [StringLength(50, ErrorMessage = "{0} باید حداقل 2 کاراکتر باشد", MinimumLength = 2)]
+      [Display(Name = "نام شخص")]
+      public string Name { get; set; }
+
+      [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+      [StringLength(80, ErrorMessage = "{0} باید حداقل 8 کاراکتر باشد", MinimumLength = 8)]
+      [Display(Name = "توضیحات")]
+      public string Description { get; set; }
+
+      [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+      [StringLength(120, ErrorMessage = "{0} باید حداقل 8 کاراکتر باشد", MinimumLength = 8)]
+      [Display(Name = "آدرس")]
+      public string Adress { get; set; }
     }
 
 
-    public async Task OnGetAsync(string returnUrl = null)
+    public async Task<IActionResult> OnGetAsync(string returnUrl = null)
     {
+      //if (_signInManager.IsSignedIn(User))
+      //{
+      //  return RedirectToPage("/Index");
+      //}
       ReturnUrl = returnUrl;
       ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+      return Page();
     }
 
     public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -122,13 +128,13 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
       {
         var user = CreateUser();
 
-        await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+        await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
         await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
         var result = await _userManager.CreateAsync(user, Input.Password);
 
         if (result.Succeeded)
         {
-          if(!await _RoleManager.RoleExistsAsync(SD.AdminEndUser))
+          if (!await _RoleManager.RoleExistsAsync(SD.AdminEndUser))
           {
             await _RoleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
           }
@@ -154,8 +160,34 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
               values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
               protocol: Request.Scheme);
 
-          await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-              $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+          string message = $@"
+            <html dir='rtl'>
+                <head>
+                    <style>
+                        .container {{
+                          direction: rtl;
+                          margin: 0 auto;
+                          padding: 20px;
+                          border: 1px solid black;
+                          border-radius: 12px;
+                          width: 80%;
+                          text-align: right;
+                          font-size: 20px;
+                        }}
+                    </style>
+                </head>
+                <body>
+                    <div class='container'>
+                        <p>{user.UserName} عزیز</p>
+                        <p>با تشکر از ثبت نام شما در سایت ما, برای فعال سازی اکانت خود روی لینک زیر کلیک کنید:</p>
+                        <a href='{HtmlEncoder.Default.Encode(callbackUrl)}' style='display: inline-block; margin: 0 auto; padding: 10px 20px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 4px;'>فعال سازی حساب کاربری</a>
+                        <p>اگر برای سرویس ما ثبت نام نکرده اید, این ایمیل را نادیده بگیرید</p>
+                        <p>با تشکر از شما. سالن زیبایی مونا امیری</p>
+                    </div>
+                </body>
+            </html>";
+
+          //await _emailSender.SendEmailAsync(Input.Email, "سرویس تست", message);
 
           if (_userManager.Options.SignIn.RequireConfirmedAccount)
           {
@@ -181,7 +213,9 @@ namespace Mona_Amiri.Areas.Identity.Pages.Account
     {
       try
       {
-        return Activator.CreateInstance<IdentityUser>();
+        var user = new MakeupArtist { UserName = Input.UserName, Email = Input.Email, Name = Input.Name, PhoneNumber = Input.PhoneNumber, Description = Input.Description, Adress = Input.Adress };
+
+        return user;
       }
       catch
       {

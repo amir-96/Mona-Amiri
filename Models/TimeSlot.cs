@@ -14,5 +14,6 @@ namespace Mona_Amiri.Models
     public string ShamsiDate { get; set; }
     [NotMapped]
     public string PersianDayOfWeek { get; set; }
+
   }
 }

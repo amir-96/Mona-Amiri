@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mona_Amiri.Models
 {
@@ -26,5 +27,6 @@ namespace Mona_Amiri.Models
     public int TimeslotId { get; set; }
     [Required(ErrorMessage = "فیلد را پر کتید")]
     public TimeSlot Timeslot { get; set; }
+
   }
 }

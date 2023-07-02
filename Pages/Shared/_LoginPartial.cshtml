@@ -3,18 +3,14 @@
 @inject UserManager<IdentityUser> UserManager
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
+  @if (SignInManager.IsSignedIn(User))
+  {
+    <a asp-area="User" asp-page="/Manage/Index" class=" ml-2">پنل کاربری</a>
+  }
+  else
+  {
     <li class="nav-item">
-        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post" >
-            <button  type="submit" class="nav-link btn btn-link text-dark">خروج</button>
-        </form>
+      <a class="px-4 py-2 ml-2" asp-area="Identity" asp-page="/Account/Login">ورود</a>
     </li>
-}
-else
-{
-    <li class="nav-item">
-      <a class="px-4 py-2" asp-area="Identity" asp-page="/Account/Login">ورود</a>
-    </li>
-}
+  }
 </ul>

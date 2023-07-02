@@ -1,0 +1,204 @@
+﻿@page
+@using Mona_Amiri.Services;
+@model Mona_Amiri.Areas.User.Pages.Manage.UserManagementModel
+@{
+  @if (User.IsInRole(SD.AdminEndUser))
+  {
+    ViewData["Title"] = "مدیریت کاربران";
+  }
+  else
+  {
+    ViewData["Title"] = "مشاهده ی کاربران";
+  }
+}
+
+<div class="flex flex-col w-full gap-8 mx-auto">
+  @if (User.IsInRole(SD.AdminEndUser))
+  {
+    <p class="text-center md:text-right">مدیریت کاربران</p>
+    <hr />
+    <div class="flex items-center gap-8">
+      <a asp-area="User" asp-page="/Manage/AddUser" class="text-center p-[12px] w-[180px] text-white bg-green-500 rounded shadow">افزودن کاربر جدید</a>
+      <span class="text-sm font-semibold">@TempData["Message"]</span>
+    </div>
+  }
+  else
+  {
+    <p>کاربران سایت</p>
+    <hr />
+  }
+  @if (Model.MakeupArtistList.Count > 0)
+  {
+    <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-1 md2:grid-cols-2 lg2:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 max-w-[1440px]">
+      @foreach (var MakeupArtist in Model.MakeupArtistList)
+      {
+        <li class="col-span-1 flex flex-col divide-y divide-gray-200 w-full rounded-lg bg-white text-center shadow overflow-hidden">
+          <div class="flex flex-1 flex-col p-8">
+            <img class="mx-auto h-32 w-32 flex-shrink-0 rounded-full" src="~/images/ProfilePhoto/@MakeupArtist.ImageName" alt="Profile">
+            <dl class="mt-1 flex flex-grow flex-col justify-between items-center">
+              <dt class="sr-only">Role</dt>
+              <dd class="mt-2">
+                <span class="rounded-full bg-green-100 px-2 py-1 text-sm font-medium text-green-800 w-12">
+                  <span>@MakeupArtist.Role</span>
+                </span>
+              </dd>
+              <p class="mt-3 text-sm font-medium text-gray-900">@MakeupArtist.Name</p>
+              <dt class="sr-only">Title</dt>
+              <dd class="mt-3 text-sm text-gray-500 w-[270px] text-center" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                @MakeupArtist.Description
+              </dd>
+              <dt class="sr-only">Details</dt>
+              <dd onclick="showDetail('detail-modal-@MakeupArtist.UserName')" class="mt-3 text-xs text-blue-400 cursor-pointer">
+                اطلاعات کامل
+              </dd>
+            </dl>
+          </div>
+          <div>
+            @if (User.IsInRole(SD.AdminEndUser) || User.IsInRole(SD.CashierEndUser))
+            {
+              <div class="-mt-px flex divide-x divide-gray-200">
+                <a asp-area="User" asp-page="/Manage/EditUser" asp-route-id="@MakeupArtist.Id" class="flex-1 bg-yellow-200 p-4 text-center">
+                  ویرایش
+                </a>
+                @if (MakeupArtist.Role != "مدیر")
+                {
+                  <button onclick="showDelete('delete-modal-@MakeupArtist.UserName')" class="flex-1 bg-red-200 p-4 text-center">
+                    حذف
+                  </button>
+                }
+              </div>
+            }
+          </div>
+        </li>
+
+        @*Detail modal*@
+
+        <div id="detail-modal-@MakeupArtist.UserName" class="fixed hidden items-center justify-center inset-0 bg-gray-500 bg-opacity-70 transition-opacity">
+          <div class="bg-white rounded-lg overflow-hidden">
+            <div class="flex flex-1 flex-col p-8">
+              <img class="mx-auto h-32 w-32 flex-shrink-0 rounded-full" src="~/images/ProfilePhoto/@MakeupArtist.ImageName" alt="ProfilePhoto">
+              <dl class="mt-1 flex flex-grow flex-col justify-between items-center">
+                <dt class="sr-only">Role</dt>
+                <dd class="mt-2">
+                  <span class="rounded-full bg-green-100 px-2 py-1 text-sm font-medium text-green-800 w-12">
+                    <span>@MakeupArtist.Role</span>
+                  </span>
+                </dd>
+                <p class="mt-3 text-sm font-medium text-gray-900">@MakeupArtist.Name</p>
+                <dt class="sr-only">Title</dt>
+                <dd class="mt-3 text-sm text-gray-500 w-[270px] text-center" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  @MakeupArtist.Description
+                </dd>
+                <dt class="sr-only">Adress</dt>
+                <dd class="mt-3 text-xs">
+                  @MakeupArtist.Adress
+                </dd>
+                <dt class="sr-only">PhoneNumber</dt>
+                <dd class="mt-3 text-xs">
+                  @MakeupArtist.PhoneNumber
+                </dd>
+              </dl>
+            </div>
+            <div class="-mt-px flex divide-x divide-gray-200">
+              <button onclick="closeDetail('detail-modal-@MakeupArtist.UserName')" class="flex-1 bg-red-200 p-4 text-center">
+                بستن
+              </button>
+            </div>
+          </div>
+        </div>
+
+        @*Delete modal*@
+
+        <form asp-page-handler="DeleteUser" asp-route-id="@MakeupArtist.Id" id="delete-modal-@MakeupArtist.UserName" class="fixed hidden inset-0 bg-gray-500 bg-opacity-70 transition-opacity z-10">
+          <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div class="sm:flex sm:items-start">
+                    <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                      <svg class="h-6 w-6 text-red-600"
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           aria-hidden="true">
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                      </svg>
+                    </div>
+                    <div class="pt-2 text-center sm:mt-0 sm:ml-4 sm:text-right mr-4">
+                      <h3 class="text-lg font-medium leading-6 text-gray-900"
+                          id="modal-title">
+                        حذف کاربر
+                      </h3>
+                      <div class="mt-4">
+                        <p class="text-sm text-gray-500">
+                          آیا از حذف @MakeupArtist.Name اطمینان دارید؟
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                  <button type="submit"
+                          class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
+                    حذف کاربر
+                  </button>
+                  <button type="button"
+                          onclick="closeDelete('delete-modal-@MakeupArtist.UserName')"
+                          class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    انصراف
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      }
+    </ul>
+  }
+  else
+  {
+    <div class="rounded-md bg-yellow-50 p-4 w-fit">
+      <div class="flex gap-2">
+        <div class="flex-shrink-0">
+          <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-sm font-medium text-yellow-800">کاربری یافت نشد</h3>
+          <div class="mt-2 text-sm text-yellow-700">
+            <p>برای ساختن کاربر جدید بر روی دکمه ی افزودن کاربر کلیک کنید</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
+@section Scripts {
+  <script>
+    function showDetail(id) {
+      const detailModal = document.getElementById(id);
+      detailModal.style.display = "flex"
+    }
+
+    function closeDetail(id) {
+      const detailModal = document.getElementById(id);
+      detailModal.style.display = "none";
+    }
+
+    function showDelete(id) {
+      const detailModal = document.getElementById(id);
+      detailModal.style.display = "block";
+    }
+
+    function closeDelete(id) {
+      const detailModal = document.getElementById(id);
+      detailModal.style.display = "none";
+    }
+  </script>
+}

@@ -15,13 +15,12 @@
 </head>
 
 <body class="font-yekanBakh">
-  <header></header>
-
   <main role="main" class="container">
     @RenderBody()
   </main>
 
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <partial name="_ValidationScriptsPartial" />
   @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
