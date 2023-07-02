@@ -21,8 +21,16 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
       _context = context;
     }
 
-    public void OnGet()
+    public void OnGet(string userId = null)
     {
+      if (userId == null)
+      {
+        var claimsIdentity = (ClaimsIdentity)User.Identity;
+        var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+        userId = claim.Value;
+      }
+
+      Input = new InputModel { Id = userId };
     }
 
     [BindProperty]
@@ -30,6 +38,9 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
 
     public class InputModel
     {
+      [Required]
+      public string Id { get; set; }
+
       [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
       [StringLength(50, ErrorMessage = "{0} باید حداقل 2 کاراکتر باشد", MinimumLength = 2)]
       [Display(Name = "نام سرویس")]
@@ -60,11 +71,7 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
     {
       if (ModelState.IsValid)
       {
-        var claimsIdentity = (ClaimsIdentity)User.Identity;
-        var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-        var userId = claim.Value;
-
-        var makeupArtist = await _context.MakeupArtists.Include(m => m.Services).FirstOrDefaultAsync(m => m.Id == userId);
+        var makeupArtist = await _context.MakeupArtists.Include(m => m.Services).FirstOrDefaultAsync(m => m.Id == Input.Id);
 
         var persianPriceConverter = new PersianPriceConverter();
 
@@ -81,7 +88,7 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
         makeupArtist.Services.Add(service);
         await _context.SaveChangesAsync();
 
-        return RedirectToPage("/Manage/Service/Index", new { area = "User" });
+        return RedirectToPage("/Manage/Service/Index", new { area = "User", userId = Input.Id });
       }
 
       ModelState.AddModelError(string.Empty, "افزودن سرویس ناموفق بود");

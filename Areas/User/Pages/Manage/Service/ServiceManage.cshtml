@@ -1,0 +1,55 @@
+﻿@page
+@model Mona_Amiri.Areas.User.Pages.Manage.Service.ServiceManageModel
+@{
+  ViewData["Title"] = "مدیریت خدمات";
+}
+
+<div class="flex flex-col w-full gap-8 mx-auto">
+  <p class="text-center md:text-right">مدیریت خدمات</p>
+  <hr />
+  @if (Model.MakeupArtistList.Count > 0)
+  {
+    <ul role="list" class="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3 max-w-[1440px]">
+      @foreach (var makeupArtist in Model.MakeupArtistList)
+      {
+        <li class="col-span-1 rounded-lg bg-white shadow w-full h-[235px] overflow-hidden text-gray-600">
+          <div class="flex items-center justify-between w-full h-20 bg-gray-50 p-4 border-b">
+            <div class="flex items-center gap-4">
+              <img class="w-16 rounded-lg shadow" src="~/images/ProfilePhoto/@makeupArtist.ImageName" alt="ProfilePhoto" />
+              <p class="font-semibold">@makeupArtist.Name</p>
+            </div>
+          </div>
+
+          <div class="divide-y divide-gray-200 p-4">
+            <div class="flex items-center justify-between gap-4 pb-4 pt-2">
+              <p>تعداد خدمات</p>
+              <p class="text-sm font-semibold">@makeupArtist.Services.Count <span class="text-xs font-semibold text-gray-400">سرویس</span></p>
+            </div>
+
+            <div class="flex items-center justify-between gap-4 pt-4 pb-2">
+              <a asp-area="User" asp-page="/Manage/Service/Index" asp-route-userId="@makeupArtist.Id" class="p-4 w-full text-center bg-yellow-400 rounded shadow">ویرایش خدمات کاربر</a>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  }
+  else
+  {
+    <div class="rounded-md bg-yellow-50 p-4 w-fit">
+      <div class="flex gap-2">
+        <div class="flex-shrink-0">
+          <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-sm font-medium text-yellow-800">کاربری یافت نشد</h3>
+          <div class="mt-2 text-sm text-yellow-700">
+            <p>برای ساختن کاربر جدید به صفحه ی مدیریت کاربران بروید</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

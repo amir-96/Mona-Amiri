@@ -200,6 +200,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxQYWdlc1xNYW5hZ2VcU2VydmljZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/amirj/Desktop/Uni AI/Mona-Amiri/Areas/User/Pages/Manage/Service/ServiceManage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxQYWdlc1xNYW5hZ2VcU2VydmljZVxTZXJ2aWNlTWFuYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amirj/Desktop/Uni AI/Mona-Amiri/Areas/User/Pages/Manage/Time/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxQYWdlc1xNYW5hZ2VcVGltZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/amirj/Desktop/Uni AI/Mona-Amiri/Areas/User/Pages/Manage/UserManagement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxQYWdlc1xNYW5hZ2VcVXNlck1hbmFnZW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

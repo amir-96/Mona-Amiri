@@ -19,7 +19,7 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
     }
 
     public Mona_Amiri.Models.Service Service { get; set; }
-    public async Task<IActionResult> OnGet(string id)
+    public async Task<IActionResult> OnGet(string id, string userId)
     {
       if (id != null)
       {
@@ -30,6 +30,7 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
           Input = new InputModel
           {
             Id = Service.Id,
+            userId = userId,
             Name = Service.Name,
             Price = Service.Price.ToString(),
             DurationHour = Service.Duration.Hours.ToString(),
@@ -40,10 +41,10 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
           return Page();
         }
 
-        return RedirectToPage("/Manage/Service/Index", new { area = "User" });
+        return RedirectToPage("/Manage/Service/Index", new { area = "User", userId = userId });
       }
 
-      return RedirectToPage("/Manage/Service/Index", new { area = "User" });
+      return RedirectToPage("/Manage/Service/Index", new { area = "User", userId = userId });
     }
 
     [BindProperty]
@@ -51,8 +52,11 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
 
     public class InputModel
     {
-      [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+      [Required]
       public int Id { get; set; }
+
+      [Required]
+      public string userId { get; set; }
 
       [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
       [StringLength(50, ErrorMessage = "{0} باید حداقل 2 کاراکتر باشد", MinimumLength = 2)]
@@ -96,7 +100,7 @@ namespace Mona_Amiri.Areas.User.Pages.Manage.Service
 
         await _context.SaveChangesAsync();
 
-        return RedirectToPage("/Manage/Service/Index", new { area = "User" });
+        return RedirectToPage("/Manage/Service/Index", new { area = "User", userId = Input.userId });
       }
 
       ModelState.AddModelError(string.Empty, "ویرایش سرویس ناموفق بود");

@@ -846,6 +846,14 @@ select {
   top: 50%;
 }
 
+.right-\[-280px\] {
+  right: -280px;
+}
+
+.right-\[-70\%\] {
+  right: -70%;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -945,6 +953,10 @@ select {
 
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.mt-\[-16px\] {
+  margin-top: -16px;
 }
 
 .block {
@@ -1056,8 +1068,24 @@ select {
   height: 100vh;
 }
 
+.h-\[240px\] {
+  height: 240px;
+}
+
+.h-\[235px\] {
+  height: 235px;
+}
+
 .max-h-\[600px\] {
   max-height: 600px;
+}
+
+.max-h-\[400px\] {
+  max-height: 400px;
+}
+
+.max-h-\[450px\] {
+  max-height: 450px;
 }
 
 .min-h-0 {
@@ -1159,6 +1187,14 @@ select {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-\[280px\] {
+  width: 280px;
+}
+
+.w-\[70\%\] {
+  width: 70%;
 }
 
 .max-w-\[1440px\] {
@@ -1302,6 +1338,12 @@ select {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-\[12px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(12px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(12px * var(--tw-space-y-reverse));
 }
 
 .divide-x > :not([hidden]) ~ :not([hidden]) {
@@ -1600,6 +1642,10 @@ select {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-\[-16px\] {
+  padding-top: -16px;
 }
 
 .text-left {

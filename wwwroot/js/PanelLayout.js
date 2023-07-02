@@ -14,6 +14,6 @@ function closeMobilePanel() {
 
   if (mobilePanel.style.display === "block") {
     mobilePanel.style.display = "none";
-    MobileItems.style.right = "-220px";
+    MobileItems.style.right = "-70%";
   }
 }

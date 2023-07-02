@@ -129,24 +129,8 @@
       "PackagePath": "staticwebassets\\images\\Makeup.jpg"
     },
     {
-      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\43429df8-dc79-46b5-bb5d-15f95c2475e1.jpg",
-      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\43429df8-dc79-46b5-bb5d-15f95c2475e1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\517e51c7-5fcf-43d8-abe4-6502977eddb6.png",
-      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\517e51c7-5fcf-43d8-abe4-6502977eddb6.png"
-    },
-    {
       "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\DefaultProfile.png",
       "PackagePath": "staticwebassets\\images\\ProfilePhoto\\DefaultProfile.png"
-    },
-    {
-      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\a31e8449-bb1e-4db5-abf4-a3547822f55d.png",
-      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\a31e8449-bb1e-4db5-abf4-a3547822f55d.png"
-    },
-    {
-      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\ProfilePhoto\\d3f4e3e7-162b-461f-800f-f42cb148c324.png",
-      "PackagePath": "staticwebassets\\images\\ProfilePhoto\\d3f4e3e7-162b-461f-800f-f42cb148c324.png"
     },
     {
       "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\images\\Service.svg",
@@ -235,10 +219,6 @@
     {
       "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\js\\PanelLayout.js",
       "PackagePath": "staticwebassets\\js\\PanelLayout.js"
-    },
-    {
-      "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\js\\html-duration-picker.min.js",
-      "PackagePath": "staticwebassets\\js\\html-duration-picker.min.js"
     },
     {
       "Id": "C:\\Users\\amirj\\Desktop\\Uni AI\\Mona-Amiri\\wwwroot\\js\\script.js",
