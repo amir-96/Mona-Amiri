@@ -1,0 +1,115 @@
+﻿@page
+@model Mona_Amiri.Pages.Reservation.ReceiptModel
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="SHORTCUT ICON" href="~/favicon.ico" />
+  <link rel="stylesheet" href="~/css/main.css" />
+  <link rel="stylesheet" href="~/css/Reservation.css" />
+
+  <link href="~/fonts/fontiran.css" rel="stylesheet" />
+  <title>مونا امیری - تایید نهایی</title>
+</head>
+
+<body class="font-yekanBakh">
+  <div class="flex flex-col items-center w-fit p-8 gap-8 mt-8 bg-white rounded shadow shadow-yellow-200 mx-auto">
+    <div class="bg-yellow-400 rounded shadow shadow-yellow-400 overflow-hidden px-8 pt-8">
+      <img class="w-48 fade-in" src="~/images/Recipt-bg.png" alt="" />
+    </div>
+
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-right text-gray-500 md:w-[500px]">
+        <tr>
+          <th scope="col" class="px-6 py-3 bg-gray-50">
+            نام
+          </th>
+          <td class="px-6 py-4 bg-gray-50">
+            @Model.Information.Name
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            شماره ی تماس
+          </th>
+          <td class="px-6 py-4">
+            @Model.Information.PhoneNumber
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="col" class="px-6 py-3 bg-gray-50">
+            آرایشگر
+          </th>
+          <td class="flex items-center gap-2 px-6 py-4 bg-gray-50">
+            <img class="w-8 h-8 rounded-full ring-1 ring-green-400" src="~/images/ProfilePhoto/@Model.Information.ReservedMakeupArtist.ImageName" alt="" />
+            @Model.Information.ReservedMakeupArtist.Name
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            سرویس
+          </th>
+          <td class="px-6 py-4">
+            @Model.Information.ReservedService.Name
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="col" class="px-6 py-3 bg-gray-50">
+            روز انتخابی
+          </th>
+          <td class="px-6 py-4 bg-gray-50">
+            @Model.Information.DayDate
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            مبلغ پرداختی
+          </th>
+          <td class="px-6 py-4">
+            @Model.Information.ReservedService.Price<span class="text-[12px] font-semibold text-gray-500">تومان</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <form class="flex flex-col w-full">
+      <div class="relative flex items-center">
+        <div class="checkbox-wrapper-12">
+          <div class="cbx">
+            <input id="cbx-12" type="checkbox" required>
+            <label for="cbx-12"></label>
+            <svg width="15" height="14" viewBox="0 0 15 14" fill="none">
+              <path d="M2 8.36364L6.23077 12L13 2"></path>
+            </svg>
+          </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+              <filter id="goo-12">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" result="goo-12"></feColorMatrix>
+                <feBlend in="SourceGraphic" in2="goo-12"></feBlend>
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <p class="mr-2">با قوانین سایت موافق هستم.</p>
+      </div>
+      <div class="flex items-center justify-center w-full mt-8">
+        <button class="w-[50%] bg-green-400 p-4 rounded shadow transition-all duration-500 hover:shadow-lime-400">تایید و پرداخت</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

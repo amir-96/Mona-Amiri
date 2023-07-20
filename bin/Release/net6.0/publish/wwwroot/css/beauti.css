@@ -1,0 +1,368 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.background-image-div {
+  background-size: 300% 300%;
+  background-image: linear-gradient(-45deg, #ffdae1 0%, #fec195 25%, #ffdae1 51%, #fec195 100%);
+  -webkit-animation: AnimateBG 8s ease infinite;
+  animation: AnimateBG 8s ease infinite;
+}
+
+.planet-1 {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  width: 25px;
+  transform-origin: 0 0;
+  transform: rotate(10deg);
+  transition: all .5s ease-in-out;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, .3));
+  animation: slay-1 5s cubic-bezier(0.52, 0, 0.58, 1) infinite;
+  transform: rotate(10deg);
+}
+
+@-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Set the width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Set the background color of the scrollbar */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Set the color and style of the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #ffa9b8;
+  border-radius: 5px;
+}
+
+/* Animated text */
+
+.background-image-div {
+  position: relative;
+  background-color: #ffdae1;
+  height: 100vh;
+  width: 100vw;
+}
+
+@keyframes image-animation {
+  0% {
+    background-image: url('../images/test22.png');
+  }
+
+  50% {
+    background-image: url('../images/test44.png');
+  }
+
+  100% {
+    background-image: url('../images/test22.png');
+  }
+}
+
+.main-image {
+  position: absolute;
+  height: 100vh;
+  right: -8%;
+  bottom: -100px;
+  animation: fadeInFromRight 0.4s ease-in-out forwards;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.mobile-main-image {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  height: 55vh;
+  animation: fadeIn 0.4s ease-in-out forwards;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.line-animation1 {
+  opacity: 0;
+  animation: fadeInFromRight 0.4s ease-in-out forwards;
+  animation-delay: 0.4s;
+}
+
+.line-animation2 {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-in-out forwards;
+  animation-delay: 0.8s;
+}
+
+.line-animation3 {
+  opacity: 0;
+  animation: fadeInFromLeft 0.4s ease-in-out forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animated button */
+
+.animated-button {
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  color: black;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: .05rem;
+  border-bottom: 2px solid #8044ca;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.animated-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #8044ca;
+  transition: all .3s;
+  z-index: -1;
+}
+
+.animated-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: -2;
+}
+
+.animated-button:hover {
+  color: #fff;
+  &:before {
+    height: 100%;
+  }
+}
+
+.button-underline::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  width: 0;
+  border-bottom: 2px solid #8044ca;
+  transition: 0.2s all linear;
+}
+
+.button-underline:hover::before {
+  width: 100%;
+}
+
+/* Reserve section */
+
+#reservation {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 80px auto;
+}
+
+#reservation .wrapper{
+  width: 800px;
+  background: #fff;
+  margin: 15px auto;
+}
+
+#reservation .wrapper .title{
+  padding: 8px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#reservation .wrapper .tabs_wrap{
+  padding: 20px;
+  border-bottom: 1px solid #ebedec;
+}
+
+#reservation .wrapper .tabs_wrap ul{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#reservation .wrapper .tabs_wrap ul li{
+  width: 135px;
+    text-align: center;
+    background: #e9ecf1;
+    border-right: 1px solid #c1c4c9;
+    padding: 13px 15px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#reservation .wrapper .tabs_wrap ul li:first-child{
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+#reservation .wrapper .tabs_wrap ul li:last-child{
+  border-left: 0px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+#reservation .wrapper .tabs_wrap ul li.active{
+  background: #7fc469;
+  color: #fff;
+}
+
+/* Input box */
+
+.inputbox {
+  position: relative;
+  width: 196px;
+}
+
+.inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #23242a;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.inputbox span {
+  position: absolute;
+  right: 0;
+  padding: 20px 10px 10px;
+  font-size: 1em;
+  color: #8f8f8f;
+  letter-spacing: 00.05em;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.inputbox input:valid ~span,
+.inputbox input:focus ~span {
+  color: #444444;
+  transform: translateX(-10px) translateY(-34px);
+  font-size: 0,75em;
+}
+
+.inputbox i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #ffdbe1;
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.inputbox input:valid ~i,
+.inputbox input:focus ~i {
+  height: 44px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  height: 0 !important;
+}

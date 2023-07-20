@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="SHORTCUT ICON" href="~/favicon.ico" />
+  @*<environment include="Development">
+    <link href="~/css/main.css" rel="stylesheet" asp-append-version="true" />
+  </environment>
+  <environment exclude="Development">
+    <link href="~/css/main.min.css" asp-fallback-href="~/css/main.css" rel="stylesheet" asp-append-version="true" />
+  </environment>*@
+  <link href="~/css/main.css" rel="stylesheet" asp-append-version="true" />
+  <link href="~/css/beauti.css" rel="stylesheet" asp-append-version="true" />
+
+  @await RenderSectionAsync("Styles", required: false)
+
+  <link href="~/fonts/fontiran.css" rel="stylesheet" />
+  <title>@ViewData["Title"]</title>
+</head>
+
+<body class="font-yekanBakh">
+  <header>
+    <div id="desktop-header"
+         class="fixed flex items-center justify-between w-full h-20 px-8 transition-all duration-500 z-20">
+      <!-- Desktop menu -->
+      <div class="hidden md:flex items-center justify-between">
+        <a class="w-16" href="#home">
+          <img src="../images/Logo.png" alt="Logo" />
+        </a>
+        <ul class="flex items-center justify-center p-4 mr-4 gap-8 text-gray-700">
+          <li class="relative cursor-pointer button-underline">
+            <a href="#small-box-services">خدمات ما</a>
+          </li>
+          <li class="relative cursor-pointer button-underline">
+            <a href="#gallery">گالری</a>
+          </li>
+          <li class="relative cursor-pointer button-underline">
+            <a href="#contact-us">تماس با ما</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="flex md:hidden items-center justify-between">
+        <img onclick="openMobileMenu()"
+             class="w-[40px]"
+             src="../images/mobile-menu.svg"
+             alt="Mobile menu" />
+      </div>
+
+      <div id="mobile-menu"
+           class="fixed top-0 right-[-100vw] bottom-0 w-screen flex flex-col items-center gap-16 bg-white transition-all duration-200 z-40">
+        <img onclick="closeMobileMenu()"
+             class="absolute w-[20px] top-4 right-4"
+             src="../images/close.svg"
+             alt="Mobile menu" />
+        <img class="w-40 mt-20" src="../images/Logo.png" alt="Logo" />
+        <a onclick="closeMobileMenu()" class="relative cursor-pointer button-underline" href="#reserve-section"> رزرو نوبت </a>
+        <a onclick="closeMobileMenu()" class="relative cursor-pointer button-underline" href="#small-box-services">
+          خدمات ما
+        </a>
+        <a onclick="closeMobileMenu()" class="relative cursor-pointer button-underline" href="#gallery">گالری</a>
+        <a onclick="closeMobileMenu()" class="relative cursor-pointer button-underline" href="#contact-us">تماس با ما</a>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <partial name="_LoginPartial" />
+        <button class="px-4 py-2 animated-button"><a href="#reserve-section">رزرو نوبت</a></button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main" class="container">
+    @RenderBody()
+  </main>
+
+  <footer id="contact-us" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 w-screen bg-white py-12">
+    <div class="flex flex-col items-center gap-4 w-[250px] p-4 mx-auto">
+      <p class="relative text-2xl font-semibold text-gray-600 text-center before:content-[''] before:right-[50%] before:transform before:translate-x-1/2 before:absolute before:w-[80px] hover:before:w-[120px] before:bottom-[-8px] before:h-[1px] before:bg-[#db5762] before:transition-all before:duration-200">
+        درباره ی ما
+      </p>
+
+      <p class="text-center text-md text-gray-500 pt-5">با 15 سال سایقه ی کار در زمینه ی آرایشی و مراقبتی در کنار شما هستیم</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-4 w-[250px] p-4 mx-auto">
+      <p class="relative text-2xl font-semibold text-gray-600 text-center before:content-[''] before:right-[50%] before:transform before:translate-x-1/2 before:absolute before:w-[80px] hover:before:w-[120px] before:bottom-[-8px] before:h-[1px] before:bg-[#db5762] before:transition-all before:duration-200">
+        ارتباط با ما
+      </p>
+      
+      <p class="flex items-center gap-2 text-center text-md text-gray-500 pt-5"><img class="w-7" src="~/images/Location.svg" alt="" />اهواز - پاداد - خیابان 12</p>
+      <p class="flex items-center gap-2 text-center text-sm font-semibold text-gray-500"><img class="w-7 p-1 rounded-full ring-1 ring-lime-400" src="~/images/Phone.svg" alt="" />061-33342020</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-4 w-[250px] p-4 mx-auto">
+      <p class="relative text-2xl font-semibold text-gray-600 text-center before:content-[''] before:right-[50%] before:transform before:translate-x-1/2 before:absolute before:w-[80px] hover:before:w-[120px] before:bottom-[-8px] before:h-[1px] before:bg-[#db5762] before:transition-all before:duration-200">
+        شبکه های اجتماعی
+      </p>
+
+      <div class="flex items-center gap-4 pt-5">
+        <a><img class="w-8" src="~/images/Instagram.svg" alt="" /></a>
+        <a><img class="w-8" src="~/images/WhatsApp.svg" alt="" /></a>
+        <a><img class="w-8" src="~/images/Telegram.svg" alt="" /></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="~/js/script.js" asp-append-version="true"></script>
+
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

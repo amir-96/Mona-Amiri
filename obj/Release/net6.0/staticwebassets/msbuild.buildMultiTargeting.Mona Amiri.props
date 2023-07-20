@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Mona Amiri.props" />
+</Project>

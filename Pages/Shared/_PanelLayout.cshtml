@@ -1,0 +1,257 @@
+﻿@using Mona_Amiri.Services;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject ApplicationDbContext DbContext
+@{
+  var userId = UserManager.GetUserId(User);
+  var makeupArtist = DbContext.MakeupArtists.FirstOrDefault(m => m.Id == userId);
+
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+  <!DOCTYPE html>
+  <html lang="en" dir="rtl" class="h-full bg-gray-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/main.css" rel="stylesheet" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+
+    <link href="~/fonts/fontiran.css" rel="stylesheet" />
+    <title>پنل کاربری - @User.Identity?.Name</title>
+  </head>
+
+  <body class="font-yekanBakh h-full">
+    <nav>
+      @*Mobile slidebar*@
+      <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
+        <div onclick="closeMobilePanel()" id="mobile-panel" class="fixed inset-0 bg-gray-600 bg-opacity-75" style="display: none;"></div>
+
+        <div id="mobile-items-menu" class="fixed top-0 right-[-70%] bottom-0 z-40 flex bg-black w-[70%] transition-all ease-in duration-200">
+          <div class="relative flex w-full flex-1 flex-col bg-gray-800">
+            <div class="absolute top-0 right-0 -mr-12 pt-2">
+              <button type="button" class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <span class="sr-only">Close sidebar</span>
+                <!-- Heroicon name: outline/x-mark -->
+                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="h-0 flex-1 overflow-y-auto pt-5 pb-4 w-full">
+              <div class="flex flex-shrink-0 items-center px-4">
+                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+              </div>
+              <nav class="mt-5 space-y-[12px] px-2">
+                <p class="text-white text-sm font-semibold mr-2">شخصی</p>
+
+                <a asp-area="User" asp-page="/Manage/Index" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                  <img class="w-[24px] h-[24px] mr-2" src="~/images/Dashboard.svg" alt="Dashboard" />
+                  داشبورد
+                </a>
+
+                <a asp-area="User" asp-page="/Manage/Service/Index" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                  <img class="w-[24px] h-[24px] mr-2" src="~/images/ChooseService.svg" alt="ChooseService" />
+                  خدمات شخصی
+                </a>
+
+                <a asp-area="User" asp-page="/Manage/Service/Index" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                  <img class="w-[24px] h-[24px] mr-2" src="~/images/ChooseService.svg" alt="ChooseService" />
+                  زمان بندی شخصی
+                </a>
+
+                <a asp-area="User" asp-page="/Manage/Service/Index" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                  <img class="w-[24px] h-[24px] mr-2" src="~/images/ChooseService.svg" alt="ChooseService" />
+                  نوبت های رزرو شده ی من
+                </a>
+
+                @if (!User.IsInRole(SD.AdminEndUser))
+                {
+                  <a asp-area="User" asp-page="/Manage/UserManagement" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                    <!-- Heroicon name: outline/users -->
+                    <img class="w-[24px] h-[24px] mr-2" src="~/images/User.svg" alt="UserManage" />
+                    مشاهده ی کاربران
+                  </a>
+                }
+
+                @if (User.IsInRole(SD.AdminEndUser))
+                {
+                  <p class="text-white text-sm font-semibold mr-2">مدیریت</p>
+
+                  <a asp-area="User" asp-page="/Manage/UserManagement" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                    <!-- Heroicon name: outline/users -->
+                    <img class="w-[24px] h-[24px] mr-2" src="~/images/UserManage.svg" alt="UserManage" />
+                    مدیریت کاربران
+                  </a>
+                }
+
+                @if (User.IsInRole(SD.AdminEndUser) || User.IsInRole(SD.CashierEndUser))
+                {
+                  <p class="text-white text-sm font-semibold mr-2">منشی</p>
+
+                  <a asp-area="User" asp-page="/Manage/Service/ServiceManage" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                    <!-- Heroicon name: outline/folder -->
+                    <img class="w-[24px] h-[24px] mr-2" src="~/images/Service.svg" alt="Service" />
+                    مدیریت خدمات
+                  </a>
+
+                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                    <!-- Heroicon name: outline/calendar -->
+                    <img class="w-[24px] h-[24px] mr-2" src="~/images/Appointment.svg" alt="Appointment" />
+                    مدیریت نوبت ها
+                  </a>
+                }
+              </nav>
+            </div>
+            <div class="flex flex-shrink-0 bg-gray-700 p-4">
+              <div class="flex items-center justify-between w-full">
+                <div class="flex items-center gap-4">
+                  <div>
+                    <img class="inline-block w-12 h-12 rounded-full" src="~/images/ProfilePhoto/@makeupArtist.ImageName" alt="Profile">
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-base font-medium text-white">@makeupArtist.Name</p>
+                    @if (User.IsInRole(SD.AdminEndUser))
+                    {
+                      <p class="text-sm font-medium text-gray-400 group-hover:text-gray-300">مدیر سایت</p>
+                    }
+                    else if (User.IsInRole(SD.CashierEndUser))
+                    {
+                      <p class="text-sm font-medium text-gray-400 group-hover:text-gray-300">منشی</p>
+                    }
+                    else
+                    {
+                      <p class="text-sm font-medium text-gray-400 group-hover:text-gray-300">آرایشگر</p>
+                    }
+                  </div>
+                </div>
+                <form class="flex items-center" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post">
+                  <button type="submit">
+                    <img class="w-[28px] h-[28px] cursor-pointer" src="~/images/Exit.svg" alt="Exit">
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      @*Desktop slidebar*@
+
+      <div class="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
+        <!-- Sidebar component, swap this element with another sidebar if you like -->
+        <div class="flex min-h-0 flex-1 flex-col bg-gray-800">
+          <div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
+            <div class="flex flex-shrink-0 items-center px-4">
+              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            </div>
+            <nav class="mt-5 flex-1 space-y-[12px] px-2">
+              <p class="text-white text-sm font-semibold mr-2">شخصی</p>
+
+              <a asp-area="User" asp-page="/Manage/Index" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                <img class="w-[24px] h-[24px] mr-2" src="~/images/Dashboard.svg" alt="Dashboard" />
+                داشبورد
+              </a>
+
+              <a asp-area="User" asp-page="/Manage/Service/Index" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                <img class="w-[24px] h-[24px] mr-2" src="~/images/ChooseService.svg" alt="ChooseService" />
+                خدمات شخصی
+              </a>
+
+              @if (!User.IsInRole(SD.AdminEndUser))
+              {
+                <a asp-area="User" asp-page="/Manage/UserManagement" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                  <!-- Heroicon name: outline/users -->
+                  <img class="w-[24px] h-[24px] mr-2" src="~/images/User.svg" alt="UserManage" />
+                  مشاهده ی کاربران
+                </a>
+              }
+
+              @if (User.IsInRole(SD.AdminEndUser))
+              {
+                <p class="text-white text-sm font-semibold mr-2">مدیریت</p>
+
+                <a asp-area="User" asp-page="/Manage/UserManagement" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                  <!-- Heroicon name: outline/users -->
+                  <img class="w-[24px] h-[24px] mr-2" src="~/images/UserManage.svg" alt="UserManage" />
+                  مدیریت کاربران
+                </a>
+              }
+
+              @if (User.IsInRole(SD.AdminEndUser) || User.IsInRole(SD.CashierEndUser))
+              {
+                <p class="text-white text-sm font-semibold mr-2">منشی</p>
+
+                <a asp-area="User" asp-page="/Manage/Service/ServiceManage" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                  <!-- Heroicon name: outline/folder -->
+                  <img class="w-[24px] h-[24px] mr-2" src="~/images/Service.svg" alt="Service" />
+                  مدیریت خدمات
+                </a>
+
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-4">
+                  <!-- Heroicon name: outline/calendar -->
+                  <img class="w-[24px] h-[24px] mr-2" src="~/images/Appointment.svg" alt="Appointment" />
+                  مدیریت نوبت ها
+                </a>
+              }
+            </nav>
+          </div>
+          <div class="flex flex-shrink-0 bg-gray-700 p-4">
+            <div class="flex items-center justify-between group block w-full flex-shrink-0">
+              <div class="flex items-center gap-4">
+                <div>
+                  <img class="inline-block w-12 h-12 rounded-full" src="~/images/ProfilePhoto/@makeupArtist.ImageName" alt="Profile">
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm font-medium text-white">@makeupArtist.Name</p>
+                  @if (User.IsInRole(SD.AdminEndUser))
+                  {
+                    <p class="text-xs font-medium text-gray-300 group-hover:text-gray-200">مدیر سایت</p>
+                  }
+                  else if (User.IsInRole(SD.CashierEndUser))
+                  {
+                    <p class="text-xs font-medium text-gray-300 group-hover:text-gray-200">منشی</p>
+                  }
+                  else
+                  {
+                    <p class="text-xs font-medium text-gray-300 group-hover:text-gray-200">آرایشگر</p>
+                  }
+                </div>
+              </div>
+              <form class="flex items-center" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post">
+                <button type="submit">
+                  <img class="w-[28px] h-[28px] cursor-pointer" src="~/images/Exit.svg" alt="Exit">
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute top-4 right-4 flex flex-1 flex-col md:pl-64">
+        <div class="sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden">
+          <button id="open-mobile-menu-button" onclick="showMobilePanel()" type="button" class="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <span class="sr-only">Open sidebar</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main" class="w-full mx-auto">
+      <div class="md:mr-[256px] p-8 mx-auto">
+        @RenderBody()
+      </div>
+    </main>
+
+    <script src="~/js/PanelLayout.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+  </body>
+  </html>
+}

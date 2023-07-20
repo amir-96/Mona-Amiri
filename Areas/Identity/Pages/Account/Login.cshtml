@@ -1,0 +1,53 @@
+﻿@page
+@model LoginModel
+
+@{
+  Layout = "_AdminLayout";
+  ViewData["Title"] = "ورود به ناحیه کاربری";
+}
+
+@section Styles {
+  <link href="~/css/login.css" rel="stylesheet" />
+}
+
+<div class="flex items-center justify-center w-screen h-screen">
+  <div class="form-container">
+    <p class="title">ورود</p>
+    <form id="account" method="post" class="form space-y-4">
+      <div asp-validation-summary="ModelOnly" class="text-red-400"></div>
+      <div class="input-group">
+        <label asp-for="Input.UserName"></label>
+        <input asp-for="Input.UserName" autocomplete="username" aria-required="true" />
+        <span asp-validation-for="Input.UserName" class="text-red-400"></span>
+      </div>
+
+      <div class="input-group">
+        <label asp-for="Input.Password"></label>
+        <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" />
+        <span asp-validation-for="Input.Password" class="text-red-400"></span>
+      </div>
+
+      <div>
+        <div class="checkbox">
+          <label asp-for="Input.RememberMe">
+            <input asp-for="Input.RememberMe" />
+            @Html.DisplayNameFor(m => m.Input.RememberMe)
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <button id="login-submit" type="submit" class="sign">ورود</button>
+      </div>
+    </form>
+    <div class="social-message">
+      <div class="line"></div>
+      <p class="message">ورود به پنل مدیریت</p>
+      <div class="line"></div>
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+  <partial name="_ValidationScriptsPartial" />
+}
